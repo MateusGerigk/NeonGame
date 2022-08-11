@@ -1,0 +1,125 @@
+/*RESET*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url(/assets/img/bg.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* GAME TITLE */
+
+h1{
+    font-family: 'Alumni Sans Inline One', cursive;
+    color:rgb(2, 199, 51);
+    margin-bottom: 30px;
+    letter-spacing: 5px;
+    filter: blur(0.7px);
+    font-size: 60px;
+    text-shadow: 1px 1px 10px rgb(0, 205, 68);
+
+}
+
+/*BOARD GAME WITH SQUARES*/
+
+.stage{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*SQUARE MODEL*/
+
+.square{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 6px;
+    overflow: hidden;
+    border-radius: 5px;
+
+}
+
+/* SQUARE RGB NEON EFFECT*/
+
+.square::before{
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 140%;
+    background: linear-gradient(#00b61e, #9900ff);
+    animation: animate 2s linear infinite;
+    filter: blur(2px);
+
+}
+
+.square::after{
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background-color: black;
+    filter: opacity(80%);
+
+}
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+
+/*PLAYER MARK "O"*/
+
+.o{
+
+}
+
+.o::after{
+    content: 'o'; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #00B61E;
+    background: linear-gradient(to right, #00B61E 0%, #9900FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 60px rgb(17, 0, 255);
+    font-size: 80px;
+    z-index: 10;
+    position: relative;
+    bottom: 7px;
+}
+
+/*PLAYER MARK "X"*/
+
+.x{
+
+}
+
+.x::after{
+    content: 'x'; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #00B61E;
+    background: linear-gradient(to left, #00B61E 0%, #9900FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 80px;
+    z-index: 10;
+    position: relative;
+    bottom: 7px;
+}
